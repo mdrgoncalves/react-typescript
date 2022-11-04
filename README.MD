@@ -405,3 +405,87 @@ class Formulario extends React.Component {
     }
 }
 ```
+
+# Mais utilizações de Props
+
+O React ao contrário de outros frameworks, trabalha de forma unidirecional, ou seja, só é possível fazer a comunicação de cima para baixo, salvo outros recursos que não entram nesse caso. Para resolver isso, deve ser trocar a localização do componente com qual se quer comunicar para o pai comum de ambos comunicadores.
+
+# Reaproveitar Tipos
+
+Para facilitar a reutilização de tipos cria-se uma pasta 'types' dentro do src. Onde se coloca as interfaces que serão utilizadas de forma global.
+
+# Arrow Function e useState
+
+O React Hooks 'useState' é uma função que retorna um array com duas posições, a primeira é o valor do state e a segunda é a função que altera o state. Para que o React consiga identificar o valor do state, é necessário que a função seja declarada como uma arrow function.
+
+```tsx
+setState((previousState) => (newState))
+```
+
+# Pacotes de IDs Aleatórios
+
+As vezes é necessário utilizar-se de IDs para que o React entenda o que está sendo migrado de um lado para o outro. Para gerar IDs aleatórios, pode-se utilizar o pacote 'uuid'.
+
+```bash
+npm i uuid
+```
+
+Quando utilizando Typescript é necessário também baixar os tipos desse pacote, através do comando:
+
+```bash
+npm i --save-dev @types/uuid
+```
+
+Para importação desse pacote em arquivos Typescript, utiliza-se o comando:
+
+```tsx
+import { v4 as uuidv4 } from 'uuid';
+```
+
+# Pasta Common
+
+Muitas vezes em uma aplicação será necessário criar funções que vão agir de forma global, que podem ser reutilizadas em outros componentes ou partes do código, para isso cria-se a pasta common, onde ficará tudo em comum do código, dentro desta, coloca-se a utilities, código utilitários comuns ao código.
+
+# UseEffect
+
+O useEffect é um hook que permite que o React execute uma função toda vez que o componente for renderizado, ou quando uma variável for alterada. Para isso, utiliza-se o useEffect, passando como parâmetro uma função e um array de dependências. O array de dependências é um array de variáveis que, quando alteradas, farão com que a função seja executada.
+
+```tsx
+useEffect(() => {
+    console.log('Executou');
+}, [variavel]);
+```
+
+# Iterar através de Strings
+
+Para conseguir usar a desestruturação ou tratar a string como a array de caracteres que ele é, é necessário ativar a configuração no tsconfig.json. O comando é "downlevelIteration": true.
+
+# padStart
+
+O padStart é um método de string que adiciona um caractere a string, até que ela atinja o tamanho desejado. Para isso, utiliza-se o método padStart, passando como parâmetro o tamanho desejado e o caractere que será adicionado.
+
+```tsx
+const tempo = '00:00:00';
+const tempoFormatado = tempo.padStart(8, '0');
+```
+
+# Renderização Condicional
+
+Para renderizar um componente de forma condicional, utiliza-se o operador ternário, passando como parâmetro a condição e o que será renderizado caso a condição seja verdadeira ou falsa.
+
+```tsx
+{condição ? <Componente /> : <Componente />}
+```
+
+# Função Recursiva
+
+Uma função recursiva é uma função que chama a si mesma, até que uma condição seja atingida. Para isso, utiliza-se o operador ternário, passando como parâmetro a condição e o que será renderizado caso a condição seja verdadeira ou falsa.
+
+```tsx
+function recursiva() {
+    return recursiva();
+}
+```
+
+
+
